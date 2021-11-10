@@ -1,9 +1,9 @@
 import csv
-with open('texts.csv', 'r') as f:
+with open('../texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
 
-with open('calls.csv', 'r') as f:
+with open('../calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)  
 
@@ -11,10 +11,10 @@ with open('calls.csv', 'r') as f:
 # calls format calling reciving start timestamp duration  
 
 firstRecordInTexts = texts[0]
-firstRecordInCalls = calls[0] 
+lastRecordInCalls = calls[-1]  
 
 (incomingNumberText, answeringNumberText, textTimestamp) = firstRecordInTexts; 
-(incomingNumberCall, answeringNumberCall, callTimestamp, duration) = firstRecordInCalls;
+(incomingNumberCall, answeringNumberCall, callTimestamp, duration) = lastRecordInCalls;
 
 print("First record of texts, ",incomingNumberText,"texts ",answeringNumberText," at time ",textTimestamp); 
 print("Last record of calls, ", incomingNumberCall,"calls ",answeringNumberCall," at time ",callTimestamp, "lasting ",duration, "seconds"); 

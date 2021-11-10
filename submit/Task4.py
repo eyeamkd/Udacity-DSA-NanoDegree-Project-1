@@ -1,9 +1,9 @@
 import csv
-with open('texts.csv', 'r') as f:
+with open('../texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
 
-with open('calls.csv', 'r') as f:
+with open('../calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader) 
 
@@ -19,7 +19,8 @@ with open('calls.csv', 'r') as f:
 possibleTelemarketers = set()
 
 for call in calls:
-    possibleTelemarketers.add(call[0])
+    possibleTelemarketers.add(call[0]) 
+for call in calls:    
     if(call[1] in possibleTelemarketers):
         possibleTelemarketers.remove(call[1]) 
 
