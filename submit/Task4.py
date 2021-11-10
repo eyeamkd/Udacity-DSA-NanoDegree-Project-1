@@ -7,15 +7,6 @@ with open('../calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader) 
 
-# make outgoing calls
-# never receive or send texts
-# never receive incoming calls
-
-# loop through the calls and keep collecting the outgoing
-# numbers and then remove incoming numbers 
-
-# loop through texts and then remove sending or receiving number 
-
 possibleTelemarketers = set()
 
 for call in calls:
@@ -32,7 +23,6 @@ for text in texts:
 
 print('These numbers could be telemarketers:') 
 
-sorted(possibleTelemarketers,key=str) 
 
-for number in possibleTelemarketers:
+for number in sorted(possibleTelemarketers,key=str):
     print(number,end="\n")
