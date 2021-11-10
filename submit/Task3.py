@@ -14,7 +14,7 @@ def getAreaCode(phoneNumber):
     if(" " in phoneNumber):
         return phoneNumber[:4] 
     elif('('==phoneNumber[0]):
-        return phoneNumber[:5]
+        return phoneNumber[:(phoneNumber.index(")")+1)]
         
 
 areaCodes = set()
@@ -22,13 +22,15 @@ bangloreCalls = 0
 
 
 for entry in calls: 
-    areaCode = entry[0][1:4]
+    areaCode = entry[0][1:4] 
+    receiverAreaCode = getAreaCode(entry[1])
     if(areaCode=='080'):
-        bangloreCalls+=1
-        areaCodes.add(getAreaCode(entry[1]))     
+        areaCodes.add(receiverAreaCode) 
+        if(receiverAreaCode[1:4]=='080'):
+            bangloreCalls+=1   
 
 percentage = bangloreCalls*100/(len(calls))
-
+print("The numbers called by people in Bangalore have codes:")
 for code in sorted(areaCodes,key=str):
     print(code,end="\n") 
 
