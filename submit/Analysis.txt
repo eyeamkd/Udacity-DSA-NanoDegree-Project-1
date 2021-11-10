@@ -44,9 +44,14 @@ Time Complexity for Task3:
 This solution involves a for loop again which is of O(N) time complexity
 the if checks inside the for loop take O(1) time
 
-calculation of percentage takes O(1) time
+calculation of percentage takes O(1) time 
 
-Hence the final time complexity is O(N) 
+And sorting the area codes lexicographically takes O(MlogM) time 
+where M is number of area codes in the step. considering M is the size of the "areaCodes" set
+
+Looping through the area codes takes O(M) time
+
+Hence the time complexity is O(M) + O(MlogM) + O(N)
 
 Time Complexity for Task4:
 
